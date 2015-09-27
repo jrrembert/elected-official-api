@@ -1,10 +1,202 @@
 {
-	"Washington": {
-		"governor": "Jay",
+	"Alabama": {
+		"governor": "Robert J. Bentley",
+		"senators": []
+	},
+	"Alaska": {
+		"governor": "Bill Walker",
+		"senators": []
+	},
+	"Arizona": {
+		"governor": "Doug Ducey",
+		"senators": []
+	},
+	"Arkansas": {
+		"governor": "Asa Hutchinson",
+		"senators": []
+	},
+	"California": {
+		"governor": "Jerry Brown",
+		"senators": []
+	},
+	"Colorado": {
+		"governor": "John Hickenlooper",
+		"senators": []
+	},
+	"Connecticut": {
+		"governor": "Dan Malloy",
+		"senators": []
+	},
+	"Delaware": {
+		"governor": "Jack Markell",
+		"senators": []
+	},
+	"Florida": {
+		"governor": "Rick Scott",
+		"senators": []
+	},
+	"Georgia": {
+		"governor": "Nathan Deal",
+		"senators": []
+	},
+	"Hawaii": {
+		"governor": "David Ige",
+		"senators": []
+	},
+	"Idaho": {
+		"governor": "Butch Otter",
+		"senators": []
+	},
+	"Illinois": {
+		"governor": "Bruce Rauner",
+		"senators": []
+	},
+	"Indiana": {
+		"governor": "Mike Pence",
+		"senators": []
+	},
+	"Iowa": {
+		"governor": "Terry Branstad",
+		"senators": []
+	},
+	"Kansas": {
+		"governor": "Sam Brownback",
+		"senators": []
+	},
+	"Kentucky": {
+		"governor": "Steve Beshear",
+		"senators": []
+	},
+	"Louisiana": {
+		"governor": "Bobby Jindal",
+		"senators": []
+	},
+	"Maine": {
+		"governor": "Paul LePage",
+		"senators": []
+	},
+	"Maryland": {
+		"governor": "Larry Hogan",
+		"senators": []
+	},
+	"Massachusetts": {
+		"governor": "Charlie Baker",
+		"senators": []
+	},
+	"Michigan": {
+		"governor": "Rick Snyder",
+		"senators": []
+	},
+	"Minnesota": {
+		"governor": "Mark Dayton",
+		"senators": []
+	},
+	"Mississippi": {
+		"governor": "Phil Bryant",
+		"senators": []
+	},
+	"Missouri": {
+		"governor": "Jay Nixon",
+		"senators": []
+	},
+	"Montana": {
+		"governor": "Steve Bullock",
+		"senators": []
+	},
+	"Nebraska": {
+		"governor": "Pete Ricketts",
+		"senators": []
+	},
+	"Nevada": {
+		"governor": "Brian Sandoval",
+		"senators": []
+	},
+	"New Hampshire": {
+		"governor": "Maggie Hassan",
+		"senators": []
+	},
+	"New Jersey": {
+		"governor": "Chris Christie",
+		"senators": []
+	},
+	"New Mexico": {
+		"governor": "Susana Martinez",
+		"senators": []
+	},
+	"New York": {
+		"governor": "Andrew Cuomo",
+		"senators": []
+	},
+	"North Carolina": {
+		"governor": "Pat McCrory",
+		"senators": []
+	},
+	"North Dakota": {
+		"governor": "Jack Dalrymple",
+		"senators": []
+	},
+	"Ohio": {
+		"governor": "John Kasich",
+		"senators": []
+	},
+	"Oklahoma": {
+		"governor": "Mary Fallin",
 		"senators": []
 	},
 	"Oregon": {
-		"governor": "Other",
+		"governor": "Kate Brown",
+		"senators": []
+	},
+	"Pennsylvania": {
+		"governor": "Tom Wolf",
+		"senators": []
+	},
+	"Rhode Island": {
+		"governor": "Gina Raimondo",
+		"senators": []
+	},
+	"South Carolina": {
+		"governor": "Nikki Haley",
+		"senators": []
+	},
+	"South Dakota": {
+		"governor": "Dennis Daugaard",
+		"senators": []
+	},
+	"Tennessee": {
+		"governor": "Bill Haslam",
+		"senators": []
+	},
+	"Texas": {
+		"governor": "Greg Abbott",
+		"senators": []
+	},
+	"Utah": {
+		"governor": "Gary Herbert",
+		"senators": []
+	},
+	"Vermont": {
+		"governor": "Peter Shumlin",
+		"senators": []
+	},
+	"Virginia": {
+		"governor": "Terry McAuliffe",
+		"senators": []
+	},
+	"Washington": {
+		"governor": "Jay Inslee",
+		"senators": []
+	},
+	"West Virginia": {
+		"governor": "Earl R. Tomblin",
+		"senators": []
+	},
+	"Wisconsin": {
+		"governor": "Scott Walker",
+		"senators": []
+	},
+	"Wyoming": {
+		"governor": "Matt Mead",
 		"senators": []
 	}
 }
