@@ -1,4 +1,4 @@
-RESTful API for finding the name of a state's governor and senators.
+A RESTful API for finding the names of a state's governor and senators.
 
 ## Installation
 
