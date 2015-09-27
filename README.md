@@ -1,13 +1,14 @@
 RESTful API for finding the name of a state's governor and senators.
 
-
-# Installation
+## Installation
 
 Clone repo:
 
 ```
 https://github.com/jrrembert/elected-official-rest-api.git
 ```
+
+## Setup HTTPS
 
 The site only serves content over HTTPS so you will need to generate a self-signed certificate. Instructions use openssl, but other methods work as well.
 
@@ -23,21 +24,24 @@ openssl req -new -key server.key -out server.csr
 ```
 openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
 ```
-4. (Optional) Remove Passphrase from Key
+4. (Optional) Remove passphrase from key. This is useful for running in development.
 ```
 openssl rsa -in server.key -out new_server.key && mv new_server.key server.key
 ```
-# Run server
+
+5. Copy these files to your project's root directory.
+
+## Run app
 
 ```
 $ node ./src/app.js
 ```
 
-# Usage
+## Usage
 
-The API exposes a single endpoint and accepts an optional ```state``` query parameter. The state's full name or abbreviation are both valid query parameters.
+The API exposes a single endpoint which accepts an optional ```state``` query parameter. The state's full name or abbreviation are both valid query parameters.
 
-# Examples
+#### Examples
 
 Get elected officials for all states.
 
