@@ -55,7 +55,7 @@ app.get('/myapi', function(req, res) {
 	if (official !== undefined) {
 		res.json(official);
 	} else
-		res.json({"error": req.query.state + ' not found.'})
+		res.status(400).json({error: req.query.state + ' not found.'})
 })
 
 var server = https.createServer(options, app).listen(3000, function() {

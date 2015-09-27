@@ -1,0 +1,5 @@
+# SSL Certs
+
+*.key
+*.crt
+*.csr
