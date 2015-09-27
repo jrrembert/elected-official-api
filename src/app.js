@@ -42,8 +42,16 @@ app.get('/myapi', function(req, res) {
 		res.json(officials);
 	} 
 
-	var official = officials[req.query.state.capitalize()];
+	var official = "";
 
+	if (req.query.state.length < 3) {
+		var stateAbbreviation = req.query.state.toUpperCase();
+		var state = abbreviations[stateAbbreviation];
+		official = officials[state];
+	} else {
+		official = officials[req.query.state.capitalize()];
+	}
+	
 	if (official !== undefined) {
 		res.json(official);
 	} else
