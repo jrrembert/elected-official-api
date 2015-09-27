@@ -1,202 +1,352 @@
 {
-	"Alabama": {
-		"governor": "Robert J. Bentley",
-		"senators": []
-	},
-	"Alaska": {
-		"governor": "Bill Walker",
-		"senators": []
-	},
-	"Arizona": {
-		"governor": "Doug Ducey",
-		"senators": []
-	},
-	"Arkansas": {
-		"governor": "Asa Hutchinson",
-		"senators": []
-	},
-	"California": {
-		"governor": "Jerry Brown",
-		"senators": []
-	},
-	"Colorado": {
-		"governor": "John Hickenlooper",
-		"senators": []
-	},
-	"Connecticut": {
-		"governor": "Dan Malloy",
-		"senators": []
-	},
-	"Delaware": {
-		"governor": "Jack Markell",
-		"senators": []
-	},
-	"Florida": {
-		"governor": "Rick Scott",
-		"senators": []
-	},
-	"Georgia": {
-		"governor": "Nathan Deal",
-		"senators": []
-	},
-	"Hawaii": {
-		"governor": "David Ige",
-		"senators": []
-	},
-	"Idaho": {
-		"governor": "Butch Otter",
-		"senators": []
-	},
-	"Illinois": {
-		"governor": "Bruce Rauner",
-		"senators": []
-	},
-	"Indiana": {
-		"governor": "Mike Pence",
-		"senators": []
-	},
-	"Iowa": {
-		"governor": "Terry Branstad",
-		"senators": []
-	},
-	"Kansas": {
-		"governor": "Sam Brownback",
-		"senators": []
-	},
-	"Kentucky": {
-		"governor": "Steve Beshear",
-		"senators": []
-	},
-	"Louisiana": {
-		"governor": "Bobby Jindal",
-		"senators": []
-	},
-	"Maine": {
-		"governor": "Paul LePage",
-		"senators": []
-	},
-	"Maryland": {
-		"governor": "Larry Hogan",
-		"senators": []
-	},
-	"Massachusetts": {
-		"governor": "Charlie Baker",
-		"senators": []
-	},
-	"Michigan": {
-		"governor": "Rick Snyder",
-		"senators": []
-	},
-	"Minnesota": {
-		"governor": "Mark Dayton",
-		"senators": []
-	},
-	"Mississippi": {
-		"governor": "Phil Bryant",
-		"senators": []
-	},
-	"Missouri": {
-		"governor": "Jay Nixon",
-		"senators": []
-	},
-	"Montana": {
-		"governor": "Steve Bullock",
-		"senators": []
-	},
-	"Nebraska": {
-		"governor": "Pete Ricketts",
-		"senators": []
-	},
-	"Nevada": {
-		"governor": "Brian Sandoval",
-		"senators": []
-	},
-	"New Hampshire": {
-		"governor": "Maggie Hassan",
-		"senators": []
-	},
-	"New Jersey": {
-		"governor": "Chris Christie",
-		"senators": []
-	},
-	"New Mexico": {
-		"governor": "Susana Martinez",
-		"senators": []
-	},
-	"New York": {
-		"governor": "Andrew Cuomo",
-		"senators": []
-	},
-	"North Carolina": {
-		"governor": "Pat McCrory",
-		"senators": []
-	},
-	"North Dakota": {
-		"governor": "Jack Dalrymple",
-		"senators": []
-	},
-	"Ohio": {
-		"governor": "John Kasich",
-		"senators": []
-	},
-	"Oklahoma": {
-		"governor": "Mary Fallin",
-		"senators": []
-	},
-	"Oregon": {
-		"governor": "Kate Brown",
-		"senators": []
-	},
-	"Pennsylvania": {
-		"governor": "Tom Wolf",
-		"senators": []
-	},
-	"Rhode Island": {
-		"governor": "Gina Raimondo",
-		"senators": []
-	},
-	"South Carolina": {
-		"governor": "Nikki Haley",
-		"senators": []
-	},
-	"South Dakota": {
-		"governor": "Dennis Daugaard",
-		"senators": []
-	},
-	"Tennessee": {
-		"governor": "Bill Haslam",
-		"senators": []
-	},
-	"Texas": {
-		"governor": "Greg Abbott",
-		"senators": []
-	},
-	"Utah": {
-		"governor": "Gary Herbert",
-		"senators": []
-	},
-	"Vermont": {
-		"governor": "Peter Shumlin",
-		"senators": []
-	},
-	"Virginia": {
-		"governor": "Terry McAuliffe",
-		"senators": []
-	},
-	"Washington": {
-		"governor": "Jay Inslee",
-		"senators": []
-	},
-	"West Virginia": {
-		"governor": "Earl R. Tomblin",
-		"senators": []
-	},
-	"Wisconsin": {
-		"governor": "Scott Walker",
-		"senators": []
-	},
-	"Wyoming": {
-		"governor": "Matt Mead",
-		"senators": []
-	}
+    "Iowa": {
+        "governor": "Terry Branstad",
+        "senators": [
+            "Charles Grassley",
+            "Tom Harkin"
+        ]
+    },
+    "New Mexico": {
+        "governor": "Susana Martinez",
+        "senators": [
+            "Martin Heinrich",
+            "Tom Udall"
+        ]
+    },
+    "Indiana": {
+        "governor": "Mike Pence",
+        "senators": [
+            "Daniel Coats",
+            "Joe Donnelly"
+        ]
+    },
+    "West Virginia": {
+        "governor": "Earl R. Tomblin",
+        "senators": [
+            "Joe Manchin III",
+            "John Rockefeller IV"
+        ]
+    },
+    "Delaware": {
+        "governor": "Jack Markell",
+        "senators": [
+            "Thomas Carper",
+            "Christopher Coons"
+        ]
+    },
+    "Hawaii": {
+        "governor": "David Ige",
+        "senators": [
+            "Mazie Hirono",
+            "Brian Schatz"
+        ]
+    },
+    "South Dakota": {
+        "governor": "Dennis Daugaard",
+        "senators": [
+            "Tim Johnson",
+            "John Thune"
+        ]
+    },
+    "Oregon": {
+        "governor": "Kate Brown",
+        "senators": [
+            "Jeff Merkley",
+            "Ron Wyden"
+        ]
+    },
+    "Missouri": {
+        "governor": "Jay Nixon",
+        "senators": [
+            "Roy Blunt",
+            "Claire McCaskill"
+        ]
+    },
+    "Minnesota": {
+        "governor": "Mark Dayton",
+        "senators": [
+            "Al Franken",
+            "Amy Klobuchar"
+        ]
+    },
+    "Connecticut": {
+        "governor": "Dan Malloy",
+        "senators": [
+            "Richard Blumenthal",
+            "Christopher Murphy"
+        ]
+    },
+    "Kentucky": {
+        "governor": "Steve Beshear",
+        "senators": [
+            "Mitch McConnell",
+            "Rand Paul"
+        ]
+    },
+    "Michigan": {
+        "governor": "Rick Snyder",
+        "senators": [
+            "Carl Levin",
+            "Debbie Stabenow"
+        ]
+    },
+    "Oklahoma": {
+        "governor": "Mary Fallin",
+        "senators": [
+            "Tom Coburn",
+            "James Inhofe"
+        ]
+    },
+    "North Carolina": {
+        "governor": "Pat McCrory",
+        "senators": [
+            "Richard Burr",
+            "Kay Hagan"
+        ]
+    },
+    "Virginia": {
+        "governor": "Terry McAuliffe",
+        "senators": [
+            "Tim Kaine",
+            "Mark Warner"
+        ]
+    },
+    "Georgia": {
+        "governor": "Nathan Deal",
+        "senators": [
+            "Saxby Chambliss",
+            "Johnny Isakson"
+        ]
+    },
+    "Rhode Island": {
+        "governor": "Gina Raimondo",
+        "senators": [
+            "Jack Reed",
+            "Sheldon Whitehouse"
+        ]
+    },
+    "Louisiana": {
+        "governor": "Bobby Jindal",
+        "senators": [
+            "Mary Landrieu",
+            "David Vitter"
+        ]
+    },
+    "Kansas": {
+        "governor": "Sam Brownback",
+        "senators": [
+            "Jerry Moran",
+            "Pat Roberts"
+        ]
+    },
+    "Arkansas": {
+        "governor": "Asa Hutchinson",
+        "senators": [
+            "John Boozman",
+            "Mark Pryor"
+        ]
+    },
+    "Wisconsin": {
+        "governor": "Scott Walker",
+        "senators": [
+            "Tammy Baldwin",
+            "Ron Johnson"
+        ]
+    },
+    "New Hampshire": {
+        "governor": "Maggie Hassan",
+        "senators": [
+            "Kelly Ayotte",
+            "Jeanne Shaheen"
+        ]
+    },
+    "Maryland": {
+        "governor": "Larry Hogan",
+        "senators": [
+            "Benjamin Cardin",
+            "Barbara Mikulski"
+        ]
+    },
+    "Illinois": {
+        "governor": "Bruce Rauner",
+        "senators": [
+            "Richard Durbin",
+            "Mark Kirk"
+        ]
+    },
+    "Idaho": {
+        "governor": "Butch Otter",
+        "senators": [
+            "Michael Crapo",
+            "Jim Risch"
+        ]
+    },
+    "Vermont": {
+        "governor": "Peter Shumlin",
+        "senators": [
+            "Patrick Leahy",
+            "Bernard Sanders"
+        ]
+    },
+    "Mississippi": {
+        "governor": "Phil Bryant",
+        "senators": [
+            "Thad Cochran",
+            "Roger Wicker"
+        ]
+    },
+    "Florida": {
+        "governor": "Rick Scott",
+        "senators": [
+            "Bill Nelson",
+            "Marco Rubio"
+        ]
+    },
+    "Washington": {
+        "governor": "Jay Inslee",
+        "senators": [
+            "Maria Cantwell",
+            "Patty Murray"
+        ]
+    },
+    "Texas": {
+        "governor": "Greg Abbott",
+        "senators": [
+            "John Cornyn",
+            "Ted Cruz"
+        ]
+    },
+    "North Dakota": {
+        "governor": "Jack Dalrymple",
+        "senators": [
+            "John Hoeven",
+            "Heidi Heitkamp"
+        ]
+    },
+    "Ohio": {
+        "governor": "John Kasich",
+        "senators": [
+            "Sherrod Brown",
+            "Rob Portman"
+        ]
+    },
+    "Montana": {
+        "governor": "Steve Bullock",
+        "senators": [
+            "Jon Tester",
+            "John Walsh"
+        ]
+    },
+    "Nevada": {
+        "governor": "Brian Sandoval",
+        "senators": [
+            "Dean Heller",
+            "Harry Reid"
+        ]
+    },
+    "Colorado": {
+        "governor": "John Hickenlooper",
+        "senators": [
+            "Michael Bennet",
+            "Mark Udall"
+        ]
+    },
+    "Maine": {
+        "governor": "Paul LePage",
+        "senators": [
+            "Susan Collins",
+            "Angus King"
+        ]
+    },
+    "Alaska": {
+        "governor": "Bill Walker",
+        "senators": [
+            "Mark Begich",
+            "Lisa Murkowski"
+        ]
+    },
+    "Utah": {
+        "governor": "Gary Herbert",
+        "senators": [
+            "Orrin Hatch",
+            "Mike Lee"
+        ]
+    },
+    "California": {
+        "governor": "Jerry Brown",
+        "senators": [
+            "Barbara Boxer",
+            "Dianne Feinstein"
+        ]
+    },
+    "Massachusetts": {
+        "governor": "Charlie Baker",
+        "senators": [
+            "Edward Markey",
+            "Elizabeth Warren"
+        ]
+    },
+    "Nebraska": {
+        "governor": "Pete Ricketts",
+        "senators": [
+            "Deb Fischer",
+            "Mike Johanns"
+        ]
+    },
+    "Pennsylvania": {
+        "governor": "Tom Wolf",
+        "senators": [
+            "Bob Casey",
+            "Patrick Toomey"
+        ]
+    },
+    "New Jersey": {
+        "governor": "Chris Christie",
+        "senators": [
+            "Cory Booker",
+            "Robert Menendez"
+        ]
+    },
+    "Tennessee": {
+        "governor": "Bill Haslam",
+        "senators": [
+            "Lamar Alexander",
+            "Bob Corker"
+        ]
+    },
+    "Alabama": {
+        "governor": "Robert J. Bentley",
+        "senators": [
+            "Richard Shelby",
+            "Jeff Sessions"
+        ]
+    },
+    "Arizona": {
+        "governor": "Doug Ducey",
+        "senators": [
+            "Jeff Flake",
+            "John McCain"
+        ]
+    },
+    "Wyoming": {
+        "governor": "Matt Mead",
+        "senators": [
+            "John Barrasso",
+            "Michael Enzi"
+        ]
+    },
+    "New York": {
+        "governor": "Andrew Cuomo",
+        "senators": [
+            "Kirsten Gillibrand",
+            "Charles Schumer"
+        ]
+    },
+    "South Carolina": {
+        "governor": "Nikki Haley",
+        "senators": [
+            "Lindsey Graham",
+            "Tim Scott"
+        ]
+    }
 }
