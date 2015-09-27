@@ -1,0 +1,10 @@
+{
+	"Washington": {
+		"governor": "Jay",
+		"senators": []
+	},
+	"Oregon": {
+		"governor": "Other",
+		"senators": []
+	}
+}

@@ -1,0 +1,16 @@
+{
+  "name": "elected-official-rest-api",
+  "version": "1.0.0",
+  "description": "A REST API for querying information about a state's elected senators and governor.",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.13.3",
+    "express-sslify": "^0.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "J. Ryan Rembert",
+  "license": "ISC"
+}
