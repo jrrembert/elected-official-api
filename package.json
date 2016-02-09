@@ -4,13 +4,15 @@
   "description": "A REST API for querying information about a state's elected senators and governor.",
   "main": "app.js",
   "dependencies": {
-    "express": "^4.13.3",
-    "express-sslify": "^0.1.2"
+    "express": "^4.13.3"
   },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+      "start": "node ./src/app.js",
+      "versions": {
+          "node": "5.5.0"
+      }
+  }
+  "devDependencies": {},
   "author": "J. Ryan Rembert",
   "license": "ISC"
 }
