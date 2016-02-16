@@ -61,6 +61,6 @@ app.get('/myapi', function(req, res) {
 		res.status(400).json({error: req.query.state + ' not found.'});
 });
 
-var server = app.listen(port), function() {
+var server = app.listen(port, function() {
 	console.log("Server running on port " + port + ". Press Ctrl-C to exit.");
 });
