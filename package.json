@@ -7,12 +7,16 @@
     "express": "^4.13.3"
   },
   "scripts": {
-      "start": "node ./src/app.js",
-      "versions": {
-          "node": "5.5.0"
-      }
+    "start": "node ./src/app.js",
+    "versions": {
+      "node": "5.5.0"
+    }
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "mongodb": "2.1.7",
+    "monk": "1.0.1",
+    "serve-favicon": "2.3.0"
+  },
   "author": "J. Ryan Rembert",
   "license": "ISC"
 }
