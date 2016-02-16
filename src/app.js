@@ -2,27 +2,25 @@
 
 var express = require('express');
 var favicon = require('serve-favicon');
+var config = require('./config.js');
 
 // DB settings
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('localhost:27017')
-
-
+var db = monk(config.get('database.name') + config.get('database.port') + config.get('database.name'));
 
 var abbreviations = require('./mock/abbreviations.json');
 var officials = require('./mock/state_officials.json');
 
-// Serve favicon
-// TODO: is this overkill?
-app.use(favicon(__dirname + '/assets/favicon.ico'));
-
-
-
 var app = express();
+app.settings.env = config.get('env');
 
 // Needed to allow Heroku to set port
 var port = process.env.PORT || 8080;
+
+// Serve favicon
+// TODO: is this overkill?
+app.use(favicon(__dirname + '/../assets/favicon.ico'));
 
 // Simple attempt to normalize data by extending the native String object.
 // Wouldn't normally play with native types like this, but it's convenient here.
@@ -80,7 +78,7 @@ app.use(function(req, res, next) {
 // Error handlers
 
 // Development - print stacktraces
-if (app.get('env') === 'development') {
+if (app.get('env') === 'development' || app.get('env') === 'local') {
 	app.use(function(err, req, res, next) {
 		res.status(err.status || 500);
 		res.render('error', {
@@ -100,9 +98,8 @@ app.use(function(err, req, res, next) {
 });
 
 
-
-app.listen(port, function() {
-	console.log("Server running on port " + port + ". Press Ctrl-C to exit.");
+app.listen(config.get("app.port"), function() {
+	console.log("Server running on port " + config.get("app.port") + ". Press Ctrl-C to exit.");
 });
 
 module.exports = app;

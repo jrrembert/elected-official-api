@@ -1,0 +1,11 @@
+{
+    "database": {
+        "host": "localhost",
+        "port": 27017,
+        "name": "elected_officials"
+    },
+    "app": {
+        "host": "localhost",
+        "port": 3000
+    }
+}
