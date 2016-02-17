@@ -7,7 +7,7 @@ var config = require('./config.js');
 // DB settings
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk(config.get('database.name') + config.get('database.port') + config.get('database.name'));
+var db = monk(config.get('database.host') + ':' + config.get('database.port') + '/' + config.get('database.name'));
 
 var abbreviations = require('./mock/abbreviations.json');
 var officials = require('./mock/state_officials.json');
@@ -39,11 +39,10 @@ String.prototype.capitalize = function() {
 };
 
 
-
-
-
-app.get('/', function(req, res) {
-	res.send('Welcome to the Elected Officials API!');
+// Make db accessible to requests
+app.use(function(req, res, next) {
+	req.db = db;
+	next();
 });
 
 app.get('/myapi', function(req, res) {
