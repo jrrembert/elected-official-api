@@ -3,6 +3,7 @@
 var express = require('express');
 var favicon = require('serve-favicon');
 var config = require('./config.js');
+var routes = require('./routes.js');
 
 // DB settings
 var mongo = require('mongodb');
