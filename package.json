@@ -15,9 +15,11 @@
   },
   "devDependencies": {
     "convict": "1.1.2",
+    "mocha": "^2.4.5",
     "mongodb": "1.4.x",
     "monk": "^1.0.1",
-    "serve-favicon": "2.3.0"
+    "serve-favicon": "2.3.0",
+    "underscore": "1.8.3"
   },
   "author": "J. Ryan Rembert",
   "license": "ISC"
