@@ -8,7 +8,7 @@ var routes = require('./routes.js');
 // DB settings
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk(process.env.MONGOLAB_URI ||
+var db = monk(process.env.DB_URI ||
 			  config.get('database.host') + ':' +
 			  config.get('database.port') + '/' +
 			  config.get('database.name'));
