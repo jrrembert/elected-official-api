@@ -5,7 +5,8 @@
   "main": "app.js",
   "dependencies": {
     "express": "^4.13.3",
-    "mongodb": "^1.4.40"
+    "mongodb": "^1.4.40",
+    "serve-favicon": "2.3.0",
   },
   "scripts": {
     "start": "node ./src/app.js",
@@ -16,9 +17,7 @@
   "devDependencies": {
     "convict": "1.1.2",
     "mocha": "^2.4.5",
-    "mongodb": "1.4.x",
     "monk": "^1.0.1",
-    "serve-favicon": "2.3.0",
     "underscore": "1.8.3"
   },
   "author": "J. Ryan Rembert",
