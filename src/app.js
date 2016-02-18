@@ -8,7 +8,9 @@ var routes = require('./routes.js');
 // DB settings
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk(config.get('database.host') + ':' + config.get('database.port') + '/' + config.get('database.name'));
+var db = monk(config.get('database.host') + ':' +
+			  config.get('database.port') + '/' +
+			  config.get('database.name'));
 
 var abbreviations = require('./mock/abbreviations.json');
 var officials = require('./mock/state_officials.json');
@@ -19,8 +21,6 @@ app.settings.env = config.get('env');
 // Needed to allow Heroku to set port
 var port = process.env.PORT || 8080;
 
-// Serve favicon
-// TODO: is this overkill?
 app.use(favicon(__dirname + '/../assets/favicon.ico'));
 
 // Simple attempt to normalize data by extending the native String object.
@@ -39,34 +39,15 @@ String.prototype.capitalize = function() {
 	return newStr;
 };
 
-
 // Make db accessible to requests
 app.use(function(req, res, next) {
 	req.db = db;
 	next();
 });
 
-app.get('/myapi', function(req, res) {
-	if (!req.query.state) {
-		res.json(officials);
-	}
-
-	var official = "";
-
-	if (req.query.state.length < 3) {
-		var stateAbbreviation = req.query.state.toUpperCase();
-		var state = abbreviations[stateAbbreviation];
-		official = officials[state];
-	} else {
-		official = officials[req.query.state.capitalize()];
-	}
-
-	if (official !== undefined) {
-		res.json(official);
-	} else
-		res.status(400).json({error: req.query.state + ' not found.'});
-});
-
+app.get('/', routes.appRoot);
+app.get('/v1/governors', routes.getAllGovernors);
+app.get('/v1/governors/:id', routes.getGovernorById);
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -77,26 +58,20 @@ app.use(function(req, res, next) {
 
 // Error handlers
 
-// Development - print stacktraces
-if (app.get('env') === 'development' || app.get('env') === 'local') {
+// Development/Local or Test - print stacktraces
+if (app.get('env').toString() !== 'production') {
 	app.use(function(err, req, res, next) {
 		res.status(err.status || 500);
-		res.render('error', {
-			message: err.message,
-			error: err
-		});
+		// Would be better to render this in html
+		res.json({message: err.message, status: res.statusCode, error: err.stack });
 	});
 }
 
 // Production - don't display stacktraces
 app.use(function(err, req, res, next) {
 	res.status(err.status || 500);
-	res.render('error', {
-		message: err.message,
-		error: {}
-	});
+	res.json({message: err.message, error: {}});
 });
-
 
 app.listen(config.get("app.port"), function() {
 	console.log("Server running on port " + config.get("app.port") + ". Press Ctrl-C to exit.");
