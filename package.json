@@ -6,7 +6,7 @@
   "dependencies": {
     "express": "^4.13.3",
     "mongodb": "^1.4.40",
-    "serve-favicon": "2.3.0",
+    "serve-favicon": "2.3.0"
   },
   "scripts": {
     "start": "node ./src/app.js",
