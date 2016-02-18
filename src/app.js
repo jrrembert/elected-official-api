@@ -15,7 +15,6 @@ var db = monk(process.env.DB_URI ||
 
 var app = express();
 app.settings.env = config.get('env');
-
 // Needed to allow Heroku to set port
 var port = process.env.PORT || config.get("app.port");
 
@@ -44,7 +43,7 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', routes.appRoot);
-app.get('/v1/governors', routes.getAllGovernors);
+app.get('/v1/governors', routes.getGovernors);
 app.get('/v1/governors/:id', routes.getGovernorById);
 
 // Catch 404 and forward to error handler
