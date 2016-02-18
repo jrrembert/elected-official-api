@@ -1,7 +1,7 @@
 'use strict';
 
 var express = require('express');
-// var favicon = require('serve-favicon');
+var favicon = require('serve-favicon');
 var config = require('./config.js');
 var routes = require('./routes.js');
 
@@ -22,7 +22,7 @@ app.settings.env = config.get('env');
 // Needed to allow Heroku to set port
 var port = process.env.PORT || 8080;
 
-// app.use(favicon(__dirname + '../assets/favicon.ico'));
+app.use(favicon(__dirname + '../assets/favicon.ico'));
 
 // Simple attempt to normalize data by extending the native String object.
 // Wouldn't normally play with native types like this, but it's convenient here.

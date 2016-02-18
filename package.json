@@ -6,19 +6,17 @@
   "dependencies": {
     "express": "^4.13.3",
     "mongodb": "^1.4.40",
-    "serve-favicon": "2.3.0"
+    "serve-favicon": "2.3.0",
+    "convict": "1.1.2",
+    "mocha": "^2.4.5",
+    "monk": "^1.0.1",
+    "underscore": "1.8.3"
   },
   "scripts": {
     "start": "node ./src/app.js",
     "versions": {
       "node": "5.5.0"
     }
-  },
-  "devDependencies": {
-    "convict": "1.1.2",
-    "mocha": "^2.4.5",
-    "monk": "^1.0.1",
-    "underscore": "1.8.3"
   },
   "author": "J. Ryan Rembert",
   "license": "ISC"
