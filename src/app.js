@@ -17,7 +17,7 @@ var app = express();
 app.settings.env = config.get('env');
 
 // Needed to allow Heroku to set port
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || config.get("app.port");
 
 app.use(favicon(__dirname + '/../assets/favicon.ico'));
 
@@ -71,8 +71,8 @@ app.use(function(err, req, res, next) {
 	res.json({message: err.message, error: {}});
 });
 
-app.listen(config.get("app.port"), function() {
-	console.log("Server running on port " + config.get("app.port") + ". Press Ctrl-C to exit.");
+app.listen(port, function() {
+	console.log("Server running on port " + port + ". Press Ctrl-C to exit.");
 });
 
 module.exports = app;
