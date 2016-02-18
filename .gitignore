@@ -11,3 +11,7 @@ node_modules/
 # Project-specific
 
 production_config.json
+
+# Heroku
+
+*.env

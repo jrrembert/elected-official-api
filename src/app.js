@@ -8,18 +8,16 @@ var routes = require('./routes.js');
 // DB settings
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk(config.get('database.host') + ':' +
+var db = monk(process.env.DB_URI ||
+			  config.get('database.host') + ':' +
 			  config.get('database.port') + '/' +
 			  config.get('database.name'));
-
-var abbreviations = require('./mock/abbreviations.json');
-var officials = require('./mock/state_officials.json');
 
 var app = express();
 app.settings.env = config.get('env');
 
 // Needed to allow Heroku to set port
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || config.get("app.port");
 
 app.use(favicon(__dirname + '/../assets/favicon.ico'));
 
@@ -73,8 +71,8 @@ app.use(function(err, req, res, next) {
 	res.json({message: err.message, error: {}});
 });
 
-app.listen(config.get("app.port"), function() {
-	console.log("Server running on port " + config.get("app.port") + ". Press Ctrl-C to exit.");
+app.listen(port, function() {
+	console.log("Server running on port " + port + ". Press Ctrl-C to exit.");
 });
 
 module.exports = app;

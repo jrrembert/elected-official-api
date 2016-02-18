@@ -3,6 +3,7 @@
 var app_name = "elected-officials-rest-api";
 
 var convict = require('convict');
+var fs = require('fs');
 
 var config = convict({
     env: {
@@ -42,15 +43,22 @@ var config = convict({
         name: {
             doc: "Database name.",
             format: String,
-            default: 'elected_officials',
+            default: "elected_officials",
             env: "DB_NAME"
         }
     }
 });
 
 // Load environment configs
-var env = config.get('env');
-config.loadFile(__dirname + '/' + env + '_config.json');
+var env = config.get("env");
+
+var config_path = __dirname + "/" + env + "_config.json";
+fs.stat(config_path, function(err, stat) {
+    if (err === null) {
+        config.loadFile(config_path);
+    }
+});
+
 config.validate({strict: true});
 
 module.exports = config;
