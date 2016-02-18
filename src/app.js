@@ -13,16 +13,13 @@ var db = monk(process.env.MONGOLAB_URI ||
 			  config.get('database.port') + '/' +
 			  config.get('database.name'));
 
-var abbreviations = require('./mock/abbreviations.json');
-var officials = require('./mock/state_officials.json');
-
 var app = express();
 app.settings.env = config.get('env');
 
 // Needed to allow Heroku to set port
 var port = process.env.PORT || 8080;
 
-app.use(favicon(__dirname + '../assets/favicon.ico'));
+app.use(favicon(__dirname + '/../assets/favicon.ico'));
 
 // Simple attempt to normalize data by extending the native String object.
 // Wouldn't normally play with native types like this, but it's convenient here.
