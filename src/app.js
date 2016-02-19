@@ -1,21 +1,24 @@
 'use strict';
 
-var https = require('https');
-var fs = require('fs');
 var express = require('express');
+var favicon = require('serve-favicon');
+var config = require('./config.js');
+var routes = require('./routes.js');
 
-var abbreviations = require('./mock/abbreviations.json');
-var officials = require('./mock/state_officials.json');
-
-// HTTPS config
-var options = {
-	key: fs.readFileSync('server.key'),
-	cert: fs.readFileSync('server.crt'),
-	requireCert: false,
-	rejectUnauthorized: false
-};
+// DB settings
+var mongo = require('mongodb');
+var monk = require('monk');
+var db = monk(process.env.DB_URI ||
+			  config.get('database.host') + ':' +
+			  config.get('database.port') + '/' +
+			  config.get('database.name'));
 
 var app = express();
+app.settings.env = config.get('env');
+// Needed to allow Heroku to set port
+var port = process.env.PORT || config.get("app.port");
+
+app.use(favicon(__dirname + '/../assets/favicon.ico'));
 
 // Simple attempt to normalize data by extending the native String object.
 // Wouldn't normally play with native types like this, but it's convenient here.
@@ -31,33 +34,44 @@ String.prototype.capitalize = function() {
 		}
 	}
 	return newStr;
+};
+
+// Make db accessible to requests
+app.use(function(req, res, next) {
+	req.db = db;
+	next();
+});
+
+app.get('/', routes.appRoot);
+app.get('/v1/governors', routes.getGovernors);
+app.get('/v1/governors/:id', routes.getGovernorById);
+
+// Catch 404 and forward to error handler
+app.use(function(req, res, next) {
+	var err = new Error('404 Not Found');
+	err.status = 404;
+	next(err);
+});
+
+// Error handlers
+
+// Development/Local or Test - print stacktraces
+if (app.get('env').toString() !== 'production') {
+	app.use(function(err, req, res, next) {
+		res.status(err.status || 500);
+		// Would be better to render this in html
+		res.json({message: err.message, status: res.statusCode, error: err.stack });
+	});
 }
 
-app.get('/', function(req, res) {
-	res.send('Welcome to the Elected Officials API!');
-})
+// Production - don't display stacktraces
+app.use(function(err, req, res, next) {
+	res.status(err.status || 500);
+	res.json({message: err.message, error: {}});
+});
 
-app.get('/myapi', function(req, res) {
-	if (!req.query.state) {
-		res.json(officials);
-	} 
+app.listen(port, function() {
+	console.log("Server running on port " + port + ". Press Ctrl-C to exit.");
+});
 
-	var official = "";
-
-	if (req.query.state.length < 3) {
-		var stateAbbreviation = req.query.state.toUpperCase();
-		var state = abbreviations[stateAbbreviation];
-		official = officials[state];
-	} else {
-		official = officials[req.query.state.capitalize()];
-	}
-	
-	if (official !== undefined) {
-		res.json(official);
-	} else
-		res.status(400).json({error: req.query.state + ' not found.'})
-})
-
-var server = https.createServer(options, app).listen(3000, function() {
-	console.log("Server running on port 3000. Press Ctrl-C to exit.")
-})
+module.exports = app;
