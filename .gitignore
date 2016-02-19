@@ -1,5 +1,5 @@
-# SSL Certs
+# Project
 
-*.key
-*.crt
-*.csr
+/node_modules
+*.env
+*_config.json
