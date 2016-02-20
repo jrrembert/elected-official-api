@@ -1,0 +1,18 @@
+# Project
+
+/node_modules
+*.env
+*_config.json
+
+# Pelican/Python
+
+*.pyc
+Makefile
+develop_server.sh
+fabfile.py
+*conf.py
+requirements.txt
+
+# Other
+
+.DS_Store
