@@ -20,22 +20,6 @@ var port = process.env.PORT || config.get("app.port");
 
 app.use(favicon(__dirname + '/../assets/favicon.ico'));
 
-// Simple attempt to normalize data by extending the native String object.
-// Wouldn't normally play with native types like this, but it's convenient here.
-String.prototype.capitalize = function() {
-	var strSplit = this.split(" ");
-	var newStr = "";
-
-	for (var i = 0; i < strSplit.length; i++) {
-		if (i === 0) {
-			newStr += strSplit[i].charAt(0).toUpperCase() + strSplit[i].slice(1).toLowerCase();
-		} else {
-			newStr += " " + strSplit[i].charAt(0).toUpperCase() + strSplit[i].slice(1).toLowerCase();
-		}
-	}
-	return newStr;
-};
-
 // Make db accessible to requests
 app.use(function(req, res, next) {
 	req.db = db;
@@ -70,8 +54,8 @@ app.use(function(err, req, res, next) {
 	res.json({message: err.message, error: {}});
 });
 
-app.listen(port, function() {
+var server = app.listen(port, function() {
 	console.log("Server running on port " + port + ". Press Ctrl-C to exit.");
 });
 
-module.exports = app;
+module.exports = server;

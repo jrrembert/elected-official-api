@@ -1,6 +1,7 @@
 'use strict';
 
 var _ = require('underscore');
+var String = require('./utils')
 
 var fields = ['-_id'];
 

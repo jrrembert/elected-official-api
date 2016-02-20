@@ -4,12 +4,11 @@
   "description": "A REST API for querying information about a state's elected senators and governor.",
   "main": "app.js",
   "dependencies": {
+    "convict": "1.1.2",
     "express": "^4.13.3",
     "mongodb": "^1.4.40",
-    "serve-favicon": "2.3.0",
-    "convict": "1.1.2",
-    "mocha": "^2.4.5",
     "monk": "^1.0.1",
+    "serve-favicon": "2.3.0",
     "underscore": "1.8.3"
   },
   "scripts": {
@@ -19,5 +18,9 @@
     }
   },
   "author": "J. Ryan Rembert",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^2.4.5",
+    "supertest": "^1.2.0"
+  },
 }
