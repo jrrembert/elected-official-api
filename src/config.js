@@ -9,7 +9,7 @@ var config = convict({
     env: {
         doc: app_name + " application environment.",
         format: ["production", "local", "development", "test"],
-        default: ["local"],
+        default: "local",
         env: "NODE_ENV",
         arg: "node-env"
     },
