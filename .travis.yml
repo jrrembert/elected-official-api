@@ -9,10 +9,16 @@ branches:
     only:
         - master
 env:
-    - CXX=g++-4.8
+    - CXX=g++-4.8 NODE_ENV=test
 addons:
     apt:
         sources:
             - ubuntu-toolchain-r-test
         packages:
             - g++-4.8
+services:
+    - mongodb
+before_script:
+    - sleep 10
+    - mongo test_elected_officials --eval 'db.addUser("test", "test")'
+    - mongo test_elected_officials --eval 'db.governors.insert({"name":"Gargamel"})'
