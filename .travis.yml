@@ -9,8 +9,7 @@ branches:
     only:
         - master
 env:
-    - CXX=g++-4.8
-    - NODE_ENV=[\'test\']
+    - CXX=g++-4.8 NODE_ENV=[\'test\']
 addons:
     apt:
         sources:
@@ -22,4 +21,4 @@ services:
 before_script:
     - sleep 10
     - mongo test_elected_officials --eval 'db.addUser("test", "test")'
-    - mongo test_elected_officials --eval 'db.governors.insert({'name':'Gargamel'})'
+    - mongo test_elected_officials --eval 'db.governors.insert({"name":"Gargamel"})'
