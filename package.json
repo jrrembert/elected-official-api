@@ -8,6 +8,7 @@
     "express": "^4.13.3",
     "mongodb": "^1.4.40",
     "monk": "^1.0.1",
+    "rootpath": "^0.1.2",
     "serve-favicon": "2.3.0",
     "underscore": "1.8.3"
   },

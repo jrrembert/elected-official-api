@@ -1,12 +1,13 @@
 'use strict';
 
+require('rootpath')();
+
 var assert = require('assert');
 var request = require('supertest');
 
 describe('extend prototypes', function() {
-    describe('String.prototype.capitalize', function() {
-
-        require('../utils');
+    describe('#String.prototype.capitalize', function() {
+        require('src/utils');
         it('should capitalize the first letter in each space-delimited word passed to it', function() {
             assert.equal('Foo,bar%baz', 'foo,bar%baz'.capitalize());
             assert.equal('Foo Bar Baz', 'Foo bar baz'.capitalize());
@@ -18,8 +19,8 @@ describe('extend prototypes', function() {
 describe('test API server and routing', function() {
     var server;
     beforeEach(function() {
-        delete require.cache[require.resolve('../app')];
-        server = require('../app');
+        delete require.cache[require.resolve('src/app')];
+        server = require('src/app');
     });
     afterEach(function (done) {
         server.close(done);
