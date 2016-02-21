@@ -18,10 +18,11 @@ describe('extend prototypes', function() {
 describe('test API server and routing', function() {
     var server;
     beforeEach(function() {
+        delete require.cache[require.resolve('../app')];
         server = require('../app');
     });
-    afterEach(function() {
-        server.close();
+    afterEach(function (done) {
+        server.close(done);
     });
     it('server responds to / (root)', function(done) {
         request(server)
