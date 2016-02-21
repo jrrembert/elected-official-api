@@ -13,6 +13,7 @@
   },
   "scripts": {
     "start": "node ./src/app.js",
+    "test": "mocha ./tests/tests.js",
     "versions": {
       "node": "5.5.0"
     }
@@ -22,5 +23,5 @@
   "devDependencies": {
     "mocha": "^2.4.5",
     "supertest": "^1.2.0"
-  },
+  }
 }
