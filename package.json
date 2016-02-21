@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "node ./src/app.js",
-    "test": "mocha ./tests/tests.js"
+    "test": "mocha ./tests/tests.js",
     "versions": {
       "node": "5.5.0"
     }
