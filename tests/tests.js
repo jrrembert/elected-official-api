@@ -4,6 +4,12 @@ require('rootpath')();
 
 var assert = require('assert');
 var request = require('supertest');
+var config = require('src/config');
+
+if (process.env.NODE_ENV !== 'test') {
+    console.log("NODE_ENV=" + process.env.NODE_ENV + ". NODE_ENV should equal 'test' when running tests.");
+    process.exit(1);
+}
 
 describe('extend prototypes', function() {
     describe('#String.prototype.capitalize', function() {
