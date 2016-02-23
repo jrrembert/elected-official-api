@@ -6,7 +6,6 @@
   "dependencies": {
     "convict": "1.1.2",
     "express": "^4.13.3",
-    "mongodb": "^1.4.40",
     "monk": "^1.0.1",
     "rootpath": "^0.1.2",
     "serve-favicon": "2.3.0",
@@ -22,6 +21,8 @@
   "author": "J. Ryan Rembert",
   "license": "ISC",
   "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^5.2.0",
     "mocha": "^2.4.5",
     "supertest": "^1.2.0"
   }
