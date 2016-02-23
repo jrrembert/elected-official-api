@@ -1,9 +1,11 @@
 'use strict';
 
+require('rootpath')();
+
 var express = require('express');
 var favicon = require('serve-favicon');
-var config = require('./config.js');
-var routes = require('./routes.js');
+var config = require('src/config');
+var routes = require('src/routes');
 
 // DB settings
 var mongo = require('mongodb');
