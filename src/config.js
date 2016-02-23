@@ -55,12 +55,10 @@ var config = convict({
 var env = config.get('env');
 
 var config_path = 'src/' + env + '_config.json';
-try {
-    fs.accessSync(config_path, fs.F_OK);
-    config.loadFile(config_path);
-} catch (err) {
-    console.log(err);
-}
+
+fs.access(config_path, fs.F_OK | fs.R_OK, function(err) {
+    console.log(err ? 'Can\'t access ' + config_path : config.loadFile(config_path));
+});
 
 config.validate({strict: true});
 
