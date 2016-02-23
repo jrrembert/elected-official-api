@@ -1,12 +1,17 @@
 'use strict';
 
+require('rootpath')();
+
 var _ = require('underscore');
-var String = require('./utils')
+var String = require('./utils');
+var config = require('src/config');
 
 var fields = ['-_id'];
 
 var queryResults = function(err, results) {
-    if (results.length === 0) {
+    if (results === null) {
+        return err;
+    } else if (results.length === 0) {
         return {results: "No results found."};
     }
 
@@ -42,7 +47,7 @@ exports.appRoot = function(req, res) {
 
 exports.getGovernors = function(req, res) {
     var db = req.db;
-	var collection = db.get('governors');
+	var collection = db.get(config.get('database.gov_collection'));
 
     if (_.isEmpty(req.query)) {
         collection.find({}, fields, function(err, docs) {
@@ -57,9 +62,8 @@ exports.getGovernors = function(req, res) {
 
 exports.getGovernorById = function(req, res) {
 	var db = req.db;
-	var collection = db.get('governors');
-
+	var collection = db.get(config.get('database.gov_collection'));
 	collection.findOne({ '_id': req.params.id }, ['-_id'], function(err, doc) {
-		res.json(queryResults(err, doc));
+        res.json(queryResults(err, doc));
 	});
 };

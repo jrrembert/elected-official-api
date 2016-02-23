@@ -2,7 +2,8 @@
     "database": {
         "host": "localhost",
         "port": 27017,
-        "name": "test_elected_officials"
+        "name": "test_elected_officials",
+        "gov_collection": "test_governors"
     },
     "app": {
         "host": "localhost",

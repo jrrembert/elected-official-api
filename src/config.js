@@ -47,18 +47,23 @@ var config = convict({
             format: String,
             default: 'elected_officials',
             env: 'DB_NAME'
+        },
+        gov_collection: {
+            doc: 'Governor collection name',
+            format: String,
+            default: 'governors',
+            env: 'GOV_COLLECTION'
         }
     }
 });
 
 // Load environment configs
 var env = config.get('env');
-
 var config_path = 'src/' + env + '_config.json';
 
-fs.access(config_path, fs.F_OK | fs.R_OK, function(err) {
-    console.log(err ? 'Can\'t access ' + config_path : config.loadFile(config_path));
-});
+// Make sure config file is loaded before preceding
+fs.accessSync(config_path, fs.F_OK | fs.R_OK);
+config.loadFile(config_path);
 
 config.validate({strict: true});
 

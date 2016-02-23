@@ -3,6 +3,7 @@
         "host": "localhost",
         "port": 27017,
         "name": "elected_officials"
+        "gov_collection": "governors"
     },
     "app": {
         "host": "localhost",
