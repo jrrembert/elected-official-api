@@ -8,7 +8,6 @@ var config = require('src/config');
 var routes = require('src/routes');
 
 // DB settings
-var mongo = require('mongodb');
 var monk = require('monk');
 var db = monk(process.env.DB_URI ||
 			  config.get('database.host') + ':' +
