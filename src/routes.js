@@ -9,9 +9,11 @@ var config = require('src/config');
 var fields = ['-_id'];
 
 var queryResults = function(err, results) {
-    if (results === null) {
-        return err;
-    } else if (results.length === 0) {
+    if (!results) {
+        return {results: "Something really bad happened. Try again later."}
+    }
+
+    if (results.length === 0) {
         return {results: "No results found."};
     }
 
