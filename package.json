@@ -6,6 +6,7 @@
   "dependencies": {
     "convict": "1.1.2",
     "express": "^4.13.3",
+    "mongodb": "1.4.x",
     "monk": "^1.0.1",
     "rootpath": "^0.1.2",
     "serve-favicon": "2.3.0",
