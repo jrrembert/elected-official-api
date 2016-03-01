@@ -8,7 +8,7 @@ var chai = require('chai');
 var chaiAsPromised = require('chai-as-promised');
 var assert = chai.assert;
 var should = chai.should();
-var monk = require('monk')
+var monk = require('monk');
 
 var db_uri = config.get('database.host') + ':' + config.get('database.port') +
     '/' + config.get('database.name');
@@ -44,7 +44,6 @@ describe('Test DB setup and structure', function() {
         db.close(done);
     });
     it("connect and initialize db", function (done) {
-        console.log(db);
         should.exist(db);
         done();
     });
@@ -88,10 +87,11 @@ describe('Test endpoints that accept params', function() {
         doc,
         server;
 
+    // TODO: If db isn't running, this may fail with a really unhelpful message.
     before(function (done) {
         db = monk(db_uri);
         collection = db.get(config.get('database.gov_collection'));
-        collection.insert({name: 'test_document'}, function(err, docs) {
+        collection.insert( {name: 'test_document'}, function(err, docs) {
             if (err) {
                 return err;
             }
