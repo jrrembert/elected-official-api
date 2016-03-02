@@ -31,27 +31,29 @@ describe('Helper methods', function() {
     });
 });
 
-describe('Test DB setup and structure', function() {
-    var db,
-        collection;
-
-    before(function (done) {
-        db = monk(db_uri);
-        collection = db.get(config.get('database.gov_collection'));
-        done();
-    });
-    after(function (done) {
-        db.close(done);
-    });
-    it("connect and initialize db", function (done) {
-        should.exist(db);
-        done();
-    });
-    it("collections exist", function (done) {
-        should.exist(collection);
-        done();
-    });
-});
+// describe('Test DB setup and structure', function() {
+//     var db,
+//         collection;
+//
+//     before(function (done) {
+//         db = monk(db_uri);
+//         debugger;
+//         collection = db.get(config.get('database.gov_collection'));
+//         done();
+//     });
+//     after(function (done) {
+//         db.close(done);
+//     });
+//     it("connect and initialize db", function (done) {
+//         debugger;
+//         should.exist(db);
+//         done();
+//     });
+//     it("collections exist", function (done) {
+//         should.exist(collection);
+//         done();
+//     });
+// });
 
 describe('Test API endpoints', function() {
     var server;
@@ -77,8 +79,8 @@ describe('Test API endpoints', function() {
     it('server responds to /congress', function(done) {
         request(server)
             .get('/v1/congress')
-            .expect(200, done)
-    })
+            .expect(200, done);
+    });
     it('404 on routes that don\'t exist', function(done) {
         request(server)
             .get('/sultans')
@@ -95,14 +97,7 @@ describe('Test endpoints that accept params', function() {
     // TODO: If db isn't running, this may fail with a really unhelpful message.
     before(function (done) {
         db = monk(db_uri);
-        collection = db.get(config.get('database.gov_collection'));
-        collection.insert( {name: 'test_document'}, function(err, docs) {
-            if (err) {
-                return err;
-            }
-            doc = docs;
-            done();
-        });
+        done();
     });
     after(function (done) {
         collection.drop(function (err) {
@@ -120,8 +115,27 @@ describe('Test endpoints that accept params', function() {
         server.close(done);
     });
     it('can call a governor resource by id', function(done) {
+        collection = db.get(config.get('database.gov_collection'));
+        collection.insert( {name: 'test_document'}, function(err, docs) {
+            if (err) {
+                return err;
+            }
+            doc = docs;
+        });
         request(server)
-            .get('/v1/governors/' + doc['_id'])
+            .get('/v1/governors/' + doc._id)
+            .expect(200, done);
+    });
+    it('can call a congress resource by id', function(done) {
+        collection = db.get(config.get('database.congress_collection'));
+        collection.insert( {name: 'test_document'}, function(err, docs) {
+            if (err) {
+                return err;
+            }
+            doc = docs;
+        });
+        request(server)
+            .get('/v1/congress/' + doc['_id'])
             .expect(200, done);
     });
 });
