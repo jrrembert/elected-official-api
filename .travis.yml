@@ -8,6 +8,7 @@ branches:
         - alpha
     only:
         - master
+        - congress
 env:
     - CXX=g++-4.8 NODE_ENV=test
 addons:

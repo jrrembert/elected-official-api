@@ -10,7 +10,8 @@ var fields = ['-_id'];
 
 var queryResults = function(err, results) {
     if (!results) {
-        return {results: "Something really bad happened. Try again later."}
+        console.error(err);
+        return {results: "Something really bad happened. Try again later."};
     }
 
     if (results.length === 0) {
@@ -43,6 +44,41 @@ var processGovernorQuery = function(query) {
     return query;
 };
 
+var processCongressQuery = function(query) {
+    var newQuery = query;
+
+    if (query.state) {
+        // We want 'state' to be flexible in terms of what it accepts as a
+        // valid parameter as well as keep our search syntax somewhat
+        // similar to /governor queries.
+
+        // We're introducting an intentional bias towards the 'state' param.
+        // If present in 'query', we will attempt to normalize 'newQuery' based
+        // on the value of 'query.state' and update 'newQuery' accordingly.
+        if (query.state.length === 2) {
+            newQuery.state = query.state.toUpperCase();
+            delete newQuery.state_name;
+        } else {
+            newQuery.state_name = query.state.capitalize();
+            delete newQuery.state;
+        }
+    }
+
+    if (query.party){
+        var reRep = /republicans?\b/i;
+        var reDem = /democrats?\b/i;
+        var reInd = /independents?\b/i;
+
+        newQuery.party = query.party.toUpperCase();
+        
+        reRep.test(query.party) ? newQuery.party = "R" : newQuery;
+        reDem.test(query.party) ? newQuery.party = "D" : newQuery;
+        reInd.test(query.party) ? newQuery.party = "I" : newQuery;
+    }
+
+    return newQuery;
+};
+
 exports.appRoot = function(req, res) {
     res.send('Welcome to the Elected Officials API!');
 };
@@ -65,7 +101,32 @@ exports.getGovernors = function(req, res) {
 exports.getGovernorById = function(req, res) {
 	var db = req.db;
 	var collection = db.get(config.get('database.gov_collection'));
-	collection.findOne({ '_id': req.params.id }, ['-_id'], function(err, doc) {
+	collection.findOne({ '_id': req.params.id }, fields, function(err, doc) {
+        res.json(queryResults(err, doc));
+	});
+};
+
+exports.getCongressMembers = function(req, res) {
+    var db = req.db;
+    var collection = db.get(config.get('database.congress_collection'));
+
+    if (_.isEmpty(req.query)) {
+        collection.find({}, fields, function(err, docs) {
+            res.json(queryResults(err, docs));
+        });
+    } else {
+        collection.find(processCongressQuery(req.query), fields,
+            function(err, docs) {
+                res.json(queryResults(err, docs));
+            }
+        );
+    }
+};
+
+exports.getCongressMemberById = function(req, res) {
+    var db = req.db;
+    var collection = db.get(config.get('database.congress_collection'));
+    collection.findOne({ '_id': req.params.id }, fields, function(err, doc) {
         res.json(queryResults(err, doc));
 	});
 };
