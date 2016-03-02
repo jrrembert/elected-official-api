@@ -74,6 +74,11 @@ describe('Test API endpoints', function() {
             .get('/v1/governors')
             .expect(200, done);
     });
+    it('server responds to /congress', function(done) {
+        request(server)
+            .get('/v1/congress')
+            .expect(200, done)
+    })
     it('404 on routes that don\'t exist', function(done) {
         request(server)
             .get('/sultans')
