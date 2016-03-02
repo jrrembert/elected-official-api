@@ -53,6 +53,12 @@ var config = convict({
             format: String,
             default: 'governors',
             env: 'GOV_COLLECTION'
+        },
+        congress_collection: {
+            doc: 'Congress collection name',
+            format: String,
+            default: 'congress',
+            env: 'CONGRESS_COLLECTION'
         }
     }
 });

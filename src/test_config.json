@@ -3,10 +3,11 @@
         "host": "localhost",
         "port": 27017,
         "name": "test_elected_officials",
-        "gov_collection": "test_governors"
+        "gov_collection": "test_governors",
+        "congress_collection": "test_congress"
     },
     "app": {
         "host": "localhost",
-        "port": 3000
+        "port": 3001
     }
 }

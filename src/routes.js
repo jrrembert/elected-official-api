@@ -69,3 +69,11 @@ exports.getGovernorById = function(req, res) {
         res.json(queryResults(err, doc));
 	});
 };
+
+exports.getCongressMembers = function(req, res) {
+    var db = req.db;
+    var collection = db.get(config.get('database.congress_collection'));
+    collection.find({}, fields, function(err, docs) {
+        res.json(queryResults(err, docs));
+    });
+};
