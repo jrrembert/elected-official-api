@@ -31,6 +31,7 @@ app.get('/', routes.appRoot);
 app.get('/v1/governors', routes.getGovernors);
 app.get('/v1/governors/:id', routes.getGovernorById);
 app.get('/v1/congress', routes.getCongressMembers);
+app.get('/v1/congress/:id', routes.getCongressMemberById);
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {

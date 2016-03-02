@@ -10,7 +10,8 @@ var fields = ['-_id'];
 
 var queryResults = function(err, results) {
     if (!results) {
-        return {results: "Something really bad happened. Try again later."}
+        console.error(err);
+        return {results: "Something really bad happened. Try again later."};
     }
 
     if (results.length === 0) {
@@ -65,7 +66,7 @@ exports.getGovernors = function(req, res) {
 exports.getGovernorById = function(req, res) {
 	var db = req.db;
 	var collection = db.get(config.get('database.gov_collection'));
-	collection.findOne({ '_id': req.params.id }, ['-_id'], function(err, doc) {
+	collection.findOne({ '_id': req.params.id }, fields, function(err, doc) {
         res.json(queryResults(err, doc));
 	});
 };
@@ -76,4 +77,12 @@ exports.getCongressMembers = function(req, res) {
     collection.find({}, fields, function(err, docs) {
         res.json(queryResults(err, docs));
     });
+};
+
+exports.getCongressMemberById = function(req, res) {
+    var db = req.db;
+    var collection = db.get(config.get('database.congress_collection'));
+    collection.findOne({ '_id': req.params.id }, fields, function(err, doc) {
+        res.json(queryResults(err, doc));
+	});
 };
