@@ -31,30 +31,6 @@ describe('Helper methods', function() {
     });
 });
 
-// describe('Test DB setup and structure', function() {
-//     var db,
-//         collection;
-//
-//     before(function (done) {
-//         db = monk(db_uri);
-//         debugger;
-//         collection = db.get(config.get('database.gov_collection'));
-//         done();
-//     });
-//     after(function (done) {
-//         db.close(done);
-//     });
-//     it("connect and initialize db", function (done) {
-//         debugger;
-//         should.exist(db);
-//         done();
-//     });
-//     it("collections exist", function (done) {
-//         should.exist(collection);
-//         done();
-//     });
-// });
-
 describe('Test API endpoints', function() {
     var server;
 
@@ -68,12 +44,14 @@ describe('Test API endpoints', function() {
     it('server responds to / (root)', function(done) {
         request(server)
             .get('/')
-            .expect(200, done);
+            .expect(200)
+            .expect('Welcome to the Elected Officials API!', done);
     });
     it('server responds to /governors', function(done) {
         request(server)
             // TODO: pass in api version as slug
             .get('/v1/governors')
+            .expect('Content-Type', 'application/json; charset=utf-8')
             .expect(200, done);
     });
     it('server responds to /congress', function(done) {
@@ -90,22 +68,55 @@ describe('Test API endpoints', function() {
 
 describe('Test endpoints that accept params', function() {
     var db,
-        collection,
-        doc,
+        govCollection,
+        congressCollection,
+        govDoc,
+        congressDoc,
         server;
+
+    var testGovDoc = {
+        'name': 'test_gov_document',
+        'party': 'test_party',
+        'state': 'sc'
+    };
+    var testCongressDoc = {
+        'name': 'test_congress_document',
+        'party': 'test_party',
+        'state': 'nc'
+    };
 
     // TODO: If db isn't running, this may fail with a really unhelpful message.
     before(function (done) {
         db = monk(db_uri);
-        done();
+        govCollection = db.get(config.get('database.gov_collection'));
+        congressCollection = db.get(config.get('database.congress_collection'));
+
+        govCollection.insert(testGovDoc, function(err, docs) {
+            if (err) {
+                return err;
+            }
+            govDoc = docs;
+        });
+        congressCollection.insert(testCongressDoc, function(err, docs) {
+            if (err) {
+                return err;
+            }
+            congressDoc = docs;
+        });
+        setTimeout(done, 1000);
     });
     after(function (done) {
-        collection.drop(function (err) {
+        govCollection.drop(function (err) {
             if (err) {
                 return err;
             }
         });
-        db.close(done);
+        congressCollection.drop(function (err) {
+            if (err) {
+                return err;
+            }
+        });
+        setTimeout(db.close(done), 1000);
     });
     beforeEach(function() {
         delete require.cache[require.resolve('src/app')];
@@ -115,27 +126,22 @@ describe('Test endpoints that accept params', function() {
         server.close(done);
     });
     it('can call a governor resource by id', function(done) {
-        collection = db.get(config.get('database.gov_collection'));
-        collection.insert( {name: 'test_document'}, function(err, docs) {
-            if (err) {
-                return err;
-            }
-            doc = docs;
-        });
         request(server)
-            .get('/v1/governors/' + doc._id)
-            .expect(200, done);
+            .get('/v1/governors/' + govDoc._id)
+            .expect(200)
+            .end(function(err, result) {
+                assert.equal(result.body.name, 'test_gov_document');
+                assert.equal(result.body.state, 'sc');
+                done();
+            });
     });
     it('can call a congress resource by id', function(done) {
-        collection = db.get(config.get('database.congress_collection'));
-        collection.insert( {name: 'test_document'}, function(err, docs) {
-            if (err) {
-                return err;
-            }
-            doc = docs;
-        });
         request(server)
-            .get('/v1/congress/' + doc['_id'])
-            .expect(200, done);
+            .get('/v1/congress/' + congressDoc._id)
+            .expect(200, {
+                name: 'test_congress_document',
+                party: 'test_party',
+                state: 'nc'
+            }, done);
     });
 });
