@@ -42,7 +42,7 @@ The API features two main endpoints: `/governors` and `/congress`.
 2. Any field present in a document can be queried on.
 3. All query parameters are case-sensitive with one notable exception:
   * The `state` parameter for both endpoints accepts a case-insensitive string. The string can be either the full state name or the state abbreviation.
-  * The `party` parameter for `/congress` accepts a case-insensitive string and can either be the full part name or the first letter.
+  * The `party` parameter for `/congress` accepts a case-insensitive string and can either be the full party name or the first letter.
 
 Note: there are some inconsistencies with how query fields are validated across endpoints. The differences are minor and will be addressed once a common schema for both datasets has been settled on.
 
