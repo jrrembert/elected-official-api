@@ -45,6 +45,7 @@ p {
   font-size: 1.75em;
   margin-bottom: 50px;
   animation-delay: .5s;
+  max-width: 450px;
 }
 
 .gh-button {
