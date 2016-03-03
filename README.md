@@ -5,7 +5,7 @@ A JSON API for finding the names of a state governors and Congressional members.
 Instructions assume you have [Homebrew](http://brew.sh/), [Node](https://nodejs.org/en/), and [npm](https://www.npmjs.com/) installed.
 
 ```
-$ git clone https://github.com/jrrembert/elected-official-rest-api.git
+$ git clone https://github.com/jrrembert/elected-official-api.git
 $ npm install
 ```
 
