@@ -8,9 +8,20 @@
 
 node_modules/
 
+# Linting
+
+.jshintrc
+.tern-project
+
 # Project-specific
 
 production_config.json
+develop_server.sh
+fabfile.py
+Makefile
+*conf.py
+requirements.txt
+*.pyc
 
 # Heroku
 

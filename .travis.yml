@@ -1,0 +1,25 @@
+language: node_js
+node_js:
+    - "5.5.0"
+    - "node"
+branches:
+    except:
+        - gh-pages
+        - alpha
+    only:
+        - master
+        - congress
+env:
+    - CXX=g++-4.8 NODE_ENV=test
+addons:
+    apt:
+        sources:
+            - ubuntu-toolchain-r-test
+        packages:
+            - g++-4.8
+services:
+    - mongodb
+before_script:
+    - sleep 10
+    - mongo test_elected_officials --eval 'db.addUser("test", "test")'
+    - mongo test_elected_officials --eval 'db.governors.insert({"name":"Gargamel"})'

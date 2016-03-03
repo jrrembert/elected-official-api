@@ -1,12 +1,13 @@
 'use strict';
 
+require('rootpath')();
+
 var express = require('express');
 var favicon = require('serve-favicon');
-var config = require('./config.js');
-var routes = require('./routes.js');
+var config = require('src/config');
+var routes = require('src/routes');
 
 // DB settings
-var mongo = require('mongodb');
 var monk = require('monk');
 var db = monk(process.env.DB_URI ||
 			  config.get('database.host') + ':' +
@@ -20,22 +21,6 @@ var port = process.env.PORT || config.get("app.port");
 
 app.use(favicon(__dirname + '/../assets/favicon.ico'));
 
-// Simple attempt to normalize data by extending the native String object.
-// Wouldn't normally play with native types like this, but it's convenient here.
-String.prototype.capitalize = function() {
-	var strSplit = this.split(" ");
-	var newStr = "";
-
-	for (var i = 0; i < strSplit.length; i++) {
-		if (i === 0) {
-			newStr += strSplit[i].charAt(0).toUpperCase() + strSplit[i].slice(1).toLowerCase();
-		} else {
-			newStr += " " + strSplit[i].charAt(0).toUpperCase() + strSplit[i].slice(1).toLowerCase();
-		}
-	}
-	return newStr;
-};
-
 // Make db accessible to requests
 app.use(function(req, res, next) {
 	req.db = db;
@@ -45,6 +30,8 @@ app.use(function(req, res, next) {
 app.get('/', routes.appRoot);
 app.get('/v1/governors', routes.getGovernors);
 app.get('/v1/governors/:id', routes.getGovernorById);
+app.get('/v1/congress', routes.getCongressMembers);
+app.get('/v1/congress/:id', routes.getCongressMemberById);
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -70,8 +57,8 @@ app.use(function(err, req, res, next) {
 	res.json({message: err.message, error: {}});
 });
 
-app.listen(port, function() {
+var server = app.listen(port, function() {
 	console.log("Server running on port " + port + ". Press Ctrl-C to exit.");
 });
 
-module.exports = app;
+module.exports = server;

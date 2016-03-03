@@ -2,7 +2,9 @@
     "database": {
         "host": "localhost",
         "port": 27017,
-        "name": "elected_officials"
+        "name": "elected_officials",
+        "gov_collection": "governors",
+        "congress_collection": "congress"
     },
     "app": {
         "host": "localhost",
