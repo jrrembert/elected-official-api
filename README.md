@@ -46,7 +46,7 @@ The API features two main endpoints: `/governors` and `/congress`.
 
 Note: there are some inconsistencies with how query fields are validated across endpoints. The differences are minor and will be addressed once a common schema for both datasets has been settled on.
 
-Additional endpoints:
+**Additional endpoints:**
 
 There are two additional endpoints: `/governors/:id` and `/congress/:id`. `:id` corresponds to the `_id` field that is autoassigned to each Mongo document.
 
