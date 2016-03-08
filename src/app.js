@@ -3,6 +3,7 @@
 require('rootpath')();
 
 var express = require('express');
+var compression = require('compression');
 var favicon = require('serve-favicon');
 var config = require('src/config');
 var routes = require('src/routes');
@@ -20,6 +21,7 @@ app.settings.env = config.get('env');
 var port = process.env.PORT || config.get("app.port");
 
 app.use(favicon(__dirname + '/../assets/favicon.ico'));
+app.use(compression());
 
 // Make db accessible to requests
 app.use(function(req, res, next) {

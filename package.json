@@ -4,6 +4,7 @@
   "description": "A REST API for querying information about a state's elected senators and governor.",
   "main": "app.js",
   "dependencies": {
+    "compression": "^1.6.1",
     "convict": "1.1.2",
     "express": "^4.13.3",
     "mongodb": "1.4.x",

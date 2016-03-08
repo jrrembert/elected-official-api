@@ -70,7 +70,7 @@ var processCongressQuery = function(query) {
         var reInd = /independents?\b/i;
 
         newQuery.party = query.party.toUpperCase();
-        
+
         reRep.test(query.party) ? newQuery.party = "R" : newQuery;
         reDem.test(query.party) ? newQuery.party = "D" : newQuery;
         reInd.test(query.party) ? newQuery.party = "I" : newQuery;
@@ -112,6 +112,9 @@ exports.getCongressMembers = function(req, res) {
 
     if (_.isEmpty(req.query)) {
         collection.find({}, fields, function(err, docs) {
+            res.set({
+                'Cache-Control': '3600'
+            });
             res.json(queryResults(err, docs));
         });
     } else {
