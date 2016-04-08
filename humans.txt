@@ -1,0 +1,18 @@
+/*  humanstxt.org/  */
+
+/*  TEAM  */
+
+Name: J. Ryan Rembert
+Site: j.ryan.rembert@gmail.com
+Twitter: jryanrembert
+Location: Seattle, USA
+
+/*  THANKS  */
+
+Name: Wikipedia
+
+/*  SITE  */
+
+Last update: 2016/02/18
+Standards: <HTML5, CSS3, Swanson Pyramid of Excellence>
+Components: <Pelican, Markdown>
