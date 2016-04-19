@@ -1,42 +1,16 @@
-A JSON API for finding the names of a state governors and Congressional members.
+A JSON API for finding information on each state's governors and Congressional members.
 
-## Installation
+## Requirements
 
-Instructions assume you have [Homebrew](http://brew.sh/), [Node](https://nodejs.org/en/), and [npm](https://www.npmjs.com/) installed.
+None!
 
-```
-$ git clone https://github.com/jrrembert/elected-official-api.git
-$ npm install
-```
+The Elected Officials API is currently completely free to use - no API keys or registration are required.
 
-## Start Mongo
-
-In a dedicated terminal window: 
-
-```
-$ brew install mongodb
-$ cd /path/to/repo
-$ mkdir -p ./data/db  # this can be whatever or wherever, but remember where it is and make sure user running mongod has r/w perms.
-$ mongod --db-path path/to/data/db
-```
-
-## Run app
-
-In another terminal window:
-
-```
-$ node ./src/app.js
-```
-
-## Tests
-
-```bash
-NODE_ENV=test mocha path/to/tests.py
-```
+The API is completely language agnostic; API call can be made by any library capable of sending and receiving HTTP requests/responses.
 
 ## Usage
 
-The API features two main endpoints: `/governors` and `/congress`. 
+The API features two main endpoints: `/governors` and `/congress`.
 
 1. Both endpoints accept optional query parameters and return results as JSON.
 2. Any field present in a document can be queried on.
@@ -51,9 +25,6 @@ Note: there are some inconsistencies with how query fields are validated across 
 There are two additional endpoints: `/governors/:id` and `/congress/:id`. `:id` corresponds to the `_id` field that is autoassigned to each Mongo document.
 
 These endpoints are made available to provide a REST-ish resource interface for exact document matches, but aren't necessary for normal API usage.
-
-
-
 
 
 #### Examples
@@ -112,7 +83,7 @@ Response Body:
 Get all Democratic members of Congress for South Carolina (using state abbreviation).
 
 ```
-GET https://localhost:3000/v1/congress?state=sc&party=democrat 
+GET https://localhost:3000/v1/congress?state=sc&party=democrat
 
 Response Body:
 {
@@ -154,3 +125,10 @@ Response Body:
 }
 ```
 
+## Contributions
+
+This is currently a pretty barebones API and there is plenty that can be done to improve it.
+
+Instructions to set up a dev environment can be found in the [wiki](https://github.com/jrrembert/elected-official-api/wiki/Project-setup).
+
+Changes should be submitted as pull requests and will be reviewed as soon as I can. To expedite the process, please include tests as appropriate. Actually, there is a better than average chance PRs will be rejected outright if lacking tests. Moral of the story: make tests, you'll be glad you did.
