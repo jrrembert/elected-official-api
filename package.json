@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A REST API for querying information about a state's elected senators and governor.",
   "main": "app.js",
+  "engines": {
+    "node": "6.11.1"
+  },
   "dependencies": {
     "convict": "1.1.2",
     "express": "^4.13.3",
@@ -16,7 +19,7 @@
     "start": "node ./src/app.js",
     "test": "mocha ./tests/tests.js",
     "versions": {
-      "node": "5.5.0"
+      "node": "6.11.1"
     }
   },
   "author": "J. Ryan Rembert",
